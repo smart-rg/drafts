@@ -5,14 +5,14 @@
 IETF                                                           A. Taddei
 Internet-Draft                                                 C. Wueest
 Intended status: Informational                                 K. Roundy
-Expires: September 20, 2019                         Symantec Corporation
+Expires: January 9, 2020                            Symantec Corporation
                                                              D. Lazanski
                                                         Last Press Label
-                                                          March 19, 2019
+                                                           July 08, 2019
 
 
    Capabilities and Limitations of an Endpoint-only Security Solution
-                   draft-taddei-cless-introduction-00
+                draft-taddei-smart-cless-introduction-01
 
 Abstract
 
@@ -37,7 +37,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 20, 2019.
+   This Internet-Draft will expire on January 9, 2020.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Taddei, et al.         Expires September 20, 2019               [Page 1]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020                [Page 1]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    include Simplified BSD License text as described in Section 4.e of
@@ -71,59 +71,59 @@ Table of Contents
    5.  Endpoints: definitions, models and scope  . . . . . . . . . .   6
      5.1.  Internal representation of an endpoint  . . . . . . . . .   7
      5.2.  Endpoints modeled in an end-to-end context  . . . . . . .   8
-   6.  Threat Landscape  . . . . . . . . . . . . . . . . . . . . . .   8
-   7.  Endpoint Security Capabilities  . . . . . . . . . . . . . . .  10
-   8.  What would be a perfect endpoint security solution? . . . . .  13
+   6.  Threat Landscape  . . . . . . . . . . . . . . . . . . . . . .   9
+   7.  Endpoint Security Capabilities  . . . . . . . . . . . . . . .  11
+   8.  What would be a perfect endpoint security solution? . . . . .  14
    9.  The defence-in-depth principle  . . . . . . . . . . . . . . .  15
    10. Endpoint Security Limits  . . . . . . . . . . . . . . . . . .  16
      10.1.  No possibility to put an endpoint security add-on on the
             UE . . . . . . . . . . . . . . . . . . . . . . . . . . .  17
        10.1.1.  Not receiving any updates or functioning patches . .  18
        10.1.2.  Mirai IoT bot  . . . . . . . . . . . . . . . . . . .  19
-     10.2.  Endpoints may not see the malware on the endpoint  . . .  19
-       10.2.1.  LoJax UEFI rootkit . . . . . . . . . . . . . . . . .  19
-       10.2.2.  SGX Malware  . . . . . . . . . . . . . . . . . . . .  20
-       10.2.3.  AMT Takeover . . . . . . . . . . . . . . . . . . . .  20
-       10.2.4.  AMT case study (anonymised)  . . . . . . . . . . . .  21
-       10.2.5.  Users bypass the endpoint security . . . . . . . . .  22
-     10.3.  Endpoints may miss information leakage attacks . . . . .  22
-       10.3.1.  Meltdown/Specter . . . . . . . . . . . . . . . . . .  22
-       10.3.2.  Network daemon exploits  . . . . . . . . . . . . . .  22
-       10.3.3.  SQL injection attacks  . . . . . . . . . . . . . . .  23
-       10.3.4.  Low and slow data exfiltration . . . . . . . . . . .  23
-     10.4.  Suboptimality and gray areas . . . . . . . . . . . . . .  24
-       10.4.1.  Stolen credentials . . . . . . . . . . . . . . . . .  24
-       10.4.2.  Zero Day Vulnerability . . . . . . . . . . . . . . .  25
-       10.4.3.  Port scan over the network . . . . . . . . . . . . .  25
-       10.4.4.  DDoS attacks . . . . . . . . . . . . . . . . . . . .  26
-   11. Learnings from production data  . . . . . . . . . . . . . . .  27
-     11.1.  Endpoint only incidents  . . . . . . . . . . . . . . . .  28
+     10.2.  Endpoints may not see the malware on the endpoint  . . .  20
+       10.2.1.  LoJax UEFI rootkit . . . . . . . . . . . . . . . . .  20
+       10.2.2.  SGX Malware  . . . . . . . . . . . . . . . . . . . .  21
+       10.2.3.  AMT Takeover . . . . . . . . . . . . . . . . . . . .  21
+       10.2.4.  AMT case study (anonymised)  . . . . . . . . . . . .  22
+       10.2.5.  Users bypass the endpoint security . . . . . . . . .  23
+     10.3.  Endpoints may miss information leakage attacks . . . . .  23
+       10.3.1.  Meltdown/Specter . . . . . . . . . . . . . . . . . .  23
+       10.3.2.  Network daemon exploits  . . . . . . . . . . . . . .  23
+       10.3.3.  SQL injection attacks  . . . . . . . . . . . . . . .  24
+       10.3.4.  Low and slow data exfiltration . . . . . . . . . . .  24
+     10.4.  Suboptimality and gray areas . . . . . . . . . . . . . .  25
+       10.4.1.  Stolen credentials . . . . . . . . . . . . . . . . .  25
+       10.4.2.  Zero Day Vulnerability . . . . . . . . . . . . . . .  26
+       10.4.3.  Port scan over the network . . . . . . . . . . . . .  26
+       10.4.4.  DDoS attacks . . . . . . . . . . . . . . . . . . . .  27
+   11. Learnings from production data  . . . . . . . . . . . . . . .  28
+     11.1.  Endpoint only incidents  . . . . . . . . . . . . . . . .  29
      11.2.  Security incidents detected primarily by network
-            security products  . . . . . . . . . . . . . . . . . . .  29
-       11.2.1.  Unauthorized external vulnerability scans  . . . . .  29
-       11.2.2.  Unauthorized internal vulnerability scans  . . . . .  30
-       11.2.3.  Malware downloads resulting in exposed endpoints . .  30
-       11.2.4.  Exploit kit infections . . . . . . . . . . . . . . .  30
-       11.2.5.  Attacks against servers  . . . . . . . . . . . . . .  31
-   12. Regulatory Considerations . . . . . . . . . . . . . . . . . .  32
+            security products  . . . . . . . . . . . . . . . . . . .  30
+       11.2.1.  Unauthorized external vulnerability scans  . . . . .  30
+       11.2.2.  Unauthorized internal vulnerability scans  . . . . .  31
+       11.2.3.  Malware downloads resulting in exposed endpoints . .  31
+       11.2.4.  Exploit kit infections . . . . . . . . . . . . . . .  31
+       11.2.5.  Attacks against servers  . . . . . . . . . . . . . .  32
+   12. Regulatory Considerations . . . . . . . . . . . . . . . . . .  33
 
 
 
-Taddei, et al.         Expires September 20, 2019               [Page 2]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020                [Page 2]
+
+Internet-Draft                    CLESS                        July 2019
 
 
-     12.1.  IoT Security . . . . . . . . . . . . . . . . . . . . . .  32
-     12.2.  Network infrastructure . . . . . . . . . . . . . . . . .  33
-     12.3.  Auditing and Assessment  . . . . . . . . . . . . . . . .  33
-     12.4.  Privacy Considerations . . . . . . . . . . . . . . . . .  34
-   13. Human Rights Considerations . . . . . . . . . . . . . . . . .  34
-   14. Security Considerations . . . . . . . . . . . . . . . . . . .  34
-   15. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  34
-   16. Informative References  . . . . . . . . . . . . . . . . . . .  34
-   Appendix A.  Contributors . . . . . . . . . . . . . . . . . . . .  39
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  40
+     12.1.  IoT Security . . . . . . . . . . . . . . . . . . . . . .  33
+     12.2.  Network infrastructure . . . . . . . . . . . . . . . . .  34
+     12.3.  Auditing and Assessment  . . . . . . . . . . . . . . . .  34
+     12.4.  Privacy Considerations . . . . . . . . . . . . . . . . .  35
+   13. Human Rights Considerations . . . . . . . . . . . . . . . . .  35
+   14. Security Considerations . . . . . . . . . . . . . . . . . . .  35
+   15. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  35
+   16. Informative References  . . . . . . . . . . . . . . . . . . .  35
+   Appendix A.  Contributors . . . . . . . . . . . . . . . . . . . .  40
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  41
 
 1.  Introduction
 
@@ -165,9 +165,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019               [Page 3]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020                [Page 3]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    Our goal with this review is to describe the benefits and limitations
@@ -221,9 +221,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019               [Page 4]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020                [Page 4]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    IDS  Intrusion Detection System
@@ -277,9 +277,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019               [Page 5]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020                [Page 5]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    o  (G REFERENCE) Global and then will be preceded by a reference
@@ -323,23 +323,23 @@ Internet-Draft                    CLESS                       March 2019
 
    Endpoints are the origin and destination for a communication between
    parties.  This encompasses User Equipment (UE) and the Host at the
-   other end of the communication.  More work to model the various
-   endpoint types would be helpful for this draft (in the same spirit as
-   the IETF TEEP Working Group generalized its work, see [TEEP]).
-
-   We require a framework in order to define and model the endpoint
-   itself and the position of the endpoint in the network.  In this
-   initial analysis we focus on endpoints that are User Equipment (UE)
-
-
-
-Taddei, et al.         Expires September 20, 2019               [Page 6]
-
-Internet-Draft                    CLESS                       March 2019
+   other end of the communication.  Whilst it is recognized that these
+   two ends of the communication may represent a vast amount of diverse
+   endpoints, this document will set here a requirement for a uniform
+   way to describe the endpoints in order to work from an equally
+   uniform representation of what is called the Attack Surface.  In the
+   same spirit as the IETF TEEP Working Group generalized its work, see
+   [TEEP], this document will rely on another document identified as
 
 
-   rather than on hosts.  In the future, we hope to balance and unify
-   the model.
+
+Taddei, et al.           Expires January 9, 2020                [Page 6]
+
+Internet-Draft                    CLESS                        July 2019
+
+
+   [I-D.draft-mcfadden-smart-endpoint-taxonomy-for-cless-00] in order to
+   represent the taxonomy of endpoints.
 
    For example:
 
@@ -349,19 +349,31 @@ Internet-Draft                    CLESS                       March 2019
    o  Hosts represent too, physical servers, virtual servers/machines,
       etc.
 
-   We need two models for the endpoint, internally and in an end-to-end
-   context within the network.  With this approach we expect both models
-   to help us cover all the threat landscape and capabilities for
-   endpoint security.  This will help us understand point attacks versus
-   composite attacks within context, and, accordingly, understand
-   holistically the capabilities and the limitations of endpoint
-   security.  For example to differentiate when only an application on
-   the end point is affected.
+   We require a framework in order to define and model the endpoint
+   itself and the position of the endpoint in the network.  In this
+   initial analysis we focus on endpoints that are User Equipment (UE)
+   rather than on hosts.  In the future, with the help of
+   [I-D.draft-mcfadden-smart-endpoint-taxonomy-for-cless-00] we hope to
+   balance and unify the model.
+
+   In addition, we need two models for the endpoint, internally and in
+   an end-to-end context within the network.  With this approach we
+   expect both models to help us cover all the attack surface and the
+   threat landscape and therefore help us list the capabilities and
+   limitations for endpoint security.
+
+   Indeed, this will help us understand point attacks versus composite
+   attacks within context, and, accordingly, understand holistically the
+   capabilities and the limitations of endpoint security.  For example
+   to differentiate when only an application on the end point is
+   affected.
 
 5.1.  Internal representation of an endpoint
 
-   An internal representation of an endpoint could be generalized by the
-   simple diagram below:
+   This section interfaces here with
+   [I-D.draft-mcfadden-smart-endpoint-taxonomy-for-cless-00] which
+   starts from the below internal representation of an endpoint which
+   could be generalized by the simple diagram below:
 
 
    +----------------------------+
@@ -374,6 +386,14 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
+
+
+
+Taddei, et al.           Expires January 9, 2020                [Page 7]
+
+Internet-Draft                    CLESS                        July 2019
+
+
    Today there are many combinations of Hardware, OS/EE pairing and
    Application layers, offering the user a vast set of features with a
    wide spectrum of capabilities.
@@ -384,15 +404,9 @@ Internet-Draft                    CLESS                       March 2019
 
    In essence we want to consider here endpoints including those which
    have a variance in electrical power, computational power, memory,
-   disk, network interfaces, size, ownership, etc.
-
-
-
-
-Taddei, et al.         Expires September 20, 2019               [Page 7]
-
-Internet-Draft                    CLESS                       March 2019
-
+   disk, network interfaces, size, ownership, connectics, etc. and
+   therefore why we rely on
+   [I-D.draft-mcfadden-smart-endpoint-taxonomy-for-cless-00].
 
 5.2.  Endpoints modeled in an end-to-end context
 
@@ -427,6 +441,15 @@ Internet-Draft                    CLESS                       March 2019
    3.  a Platform consisting of many Hosts either physical or virtual
        and it ensures a large part of the end-to-end user experience.
 
+
+
+
+
+Taddei, et al.           Expires January 9, 2020                [Page 8]
+
+Internet-Draft                    CLESS                        July 2019
+
+
    In this end-to-end model we see that many other systems may have
    interactions with the UE: the human, the UX, the digital persona, the
    sessions, the intermediate network infrastructure, and the hosts and
@@ -440,15 +463,6 @@ Internet-Draft                    CLESS                       March 2019
 
    (Editor's note: this section will require a significant amount of
    future development.)
-
-
-
-
-
-Taddei, et al.         Expires September 20, 2019               [Page 8]
-
-Internet-Draft                    CLESS                       March 2019
-
 
    Given the vast number of combinations that the above generic modeling
    offers us, defining a threat landscape should be done carefully and
@@ -485,6 +499,13 @@ Internet-Draft                    CLESS                       March 2019
 
    o  System abuse (staging/proxying)
 
+
+
+Taddei, et al.           Expires January 9, 2020                [Page 9]
+
+Internet-Draft                    CLESS                        July 2019
+
+
    o  etc.
 
    To illustrate the difficulty to define a good threat landscape, when
@@ -497,14 +518,6 @@ Internet-Draft                    CLESS                       March 2019
    comprehensive and recognized taxonomy dedicated to the threat
    landscape on endpoints.  We found however different models in this
    field, and have considered two.  We are open to further suggestions.
-
-
-
-
-Taddei, et al.         Expires September 20, 2019               [Page 9]
-
-Internet-Draft                    CLESS                       March 2019
-
 
    Indeed both of the analysed frameworks contain threat landscape
    descriptions:
@@ -541,6 +554,14 @@ Internet-Draft                    CLESS                       March 2019
 
    We are aware that once a method and the categories are fully defined
    in this section, it will force a review of all the following sections
+
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 10]
+
+Internet-Draft                    CLESS                        July 2019
+
+
    in the document.  Whilst remapping will be necessary, it should not
    drastically change the draft.
 
@@ -553,14 +574,6 @@ Internet-Draft                    CLESS                       March 2019
    framework to categorize and position endpoint security capabilities
    with the goal of defining what an ideal endpoint security capability
    would look like.
-
-
-
-
-Taddei, et al.         Expires September 20, 2019              [Page 10]
-
-Internet-Draft                    CLESS                       March 2019
-
 
    By endpoint security capabilities we mean how to protect the endpoint
    against attacks.  Protection has many meanings, we want to
@@ -598,6 +611,13 @@ Internet-Draft                    CLESS                       March 2019
 
       *  (1) Hardware
 
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 11]
+
+Internet-Draft                    CLESS                        July 2019
+
+
       *  (2) OS/EE
 
       *  (3) Application
@@ -609,14 +629,6 @@ Internet-Draft                    CLESS                       March 2019
       *  (5) a component of the OS/EE
 
       *  (6) an application by itself
-
-
-
-
-Taddei, et al.         Expires September 20, 2019              [Page 11]
-
-Internet-Draft                    CLESS                       March 2019
-
 
    In (A) we relate to a 'security by design' intention of the
    developers and they will intrinsically offer a security model and
@@ -655,6 +667,13 @@ Internet-Draft                    CLESS                       March 2019
 
       *  Access Control (RBAC, ABAC, etc.)
 
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 12]
+
+Internet-Draft                    CLESS                        July 2019
+
+
       *  Authentication
 
       *  Authorization
@@ -666,13 +685,6 @@ Internet-Draft                    CLESS                       March 2019
       *  Exploit mitigation (file/memory)
 
       *  Tamper protection
-
-
-
-Taddei, et al.         Expires September 20, 2019              [Page 12]
-
-Internet-Draft                    CLESS                       March 2019
-
 
       *  Whitelisting filter by signatures, signed code or other means
 
@@ -710,6 +722,14 @@ Internet-Draft                    CLESS                       March 2019
 
       *  Detection of network manipulation (ARP, DNS, etc.)
 
+
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 13]
+
+Internet-Draft                    CLESS                        July 2019
+
+
       *  Data Loss Prevention and exfiltration detection (incl. covert
          channels)
 
@@ -720,15 +740,6 @@ Internet-Draft                    CLESS                       March 2019
 
    o  find instantly accurate reputation for any file before it gets
       executed and block it if needed.
-
-
-
-
-
-Taddei, et al.         Expires September 20, 2019              [Page 13]
-
-Internet-Draft                    CLESS                       March 2019
-
 
    o  monitor any behavior on the endpoint, including inbound and
       outbound network traffic, learn and identify normal behavior and
@@ -766,6 +777,15 @@ Internet-Draft                    CLESS                       March 2019
 
    o  run from the OS/EE when possible.
 
+
+
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 14]
+
+Internet-Draft                    CLESS                        July 2019
+
+
    o  run as one of the first process on the OS/EE and protect itself
       from any form of unwanted tampering.
 
@@ -773,18 +793,6 @@ Internet-Draft                    CLESS                       March 2019
       event of system compromise.
 
    o  receive updates instantly from a trusted central entity.
-
-
-
-
-
-
-
-
-Taddei, et al.         Expires September 20, 2019              [Page 14]
-
-Internet-Draft                    CLESS                       March 2019
-
 
 9.  The defence-in-depth principle
 
@@ -826,6 +834,14 @@ Internet-Draft                    CLESS                       March 2019
    by intercepting traffic between the attacker and the infected client.
    Vendors will also sell solutions that monitor and intercept traffic
    on internal or external network segments to protect the enterprise
+
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 15]
+
+Internet-Draft                    CLESS                        July 2019
+
+
    from these threats.  A prime example of the limitations of endpoint
    protection software is infection via a phishing attack."  [ADAPTURE].
 
@@ -834,14 +850,6 @@ Internet-Draft                    CLESS                       March 2019
    environment can be very complex: "While endpoint security has
    improved significantly with the introduction of application
    whitelisting and other technologies, our systems and devices are
-
-
-
-Taddei, et al.         Expires September 20, 2019              [Page 15]
-
-Internet-Draft                    CLESS                       March 2019
-
-
    simply too diverse and too interconnected to ensure that host
    security can be deployed 100% ubiquitously and 100% effectively."
    [NETTODAY]
@@ -881,6 +889,15 @@ Internet-Draft                    CLESS                       March 2019
 
    The previous section defines an ideal endpoint security 'system',
    however, from the real world, the expectation of what we can get from
+
+
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 16]
+
+Internet-Draft                    CLESS                        July 2019
+
+
    an endpoint security solution will look more along the following
    lines:
 
@@ -890,13 +907,6 @@ Internet-Draft                    CLESS                       March 2019
 
    o  may not be able to run at full capacity as it slows down
       performance too much.
-
-
-
-Taddei, et al.         Expires September 20, 2019              [Page 16]
-
-Internet-Draft                    CLESS                       March 2019
-
 
    o  will miss some of the malware or attacks, regardless of detection
       method used, like signatures, heuristics, machine learning (ML),
@@ -937,6 +947,13 @@ Internet-Draft                    CLESS                       March 2019
    o  [STATISTA1] is showing the current trajectory of IoT devices from
       25B to date to 40+B in 2022 and 75B in 2025.
 
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 17]
+
+Internet-Draft                    CLESS                        July 2019
+
+
    o  [ERICSSON] is more conservative and might requires an update, but
       it was reaching 29B devices in 2022, with a nice breakdown between
       device types and connectivity.
@@ -946,13 +963,6 @@ Internet-Draft                    CLESS                       March 2019
 
    o  [ENISA] it refers to a [GARTNERIOT] report from 2017 which sets a
       trajectory to 20B devices by 2020.
-
-
-
-Taddei, et al.         Expires September 20, 2019              [Page 17]
-
-Internet-Draft                    CLESS                       March 2019
-
 
    In IoT we find UEs such as medical devices which are limited by
    regulation, welding robots that can't be slowed down, smart light
@@ -992,6 +1002,14 @@ Internet-Draft                    CLESS                       March 2019
 
    Even if security updates are received, they typically will only be
    periodically updated; hence there will be a window of opportunity for
+
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 18]
+
+Internet-Draft                    CLESS                        July 2019
+
+
    an attacker, between the time the attack is first used, and the time
    the attack is discovered/patched and the patch is deployed.
 
@@ -1001,14 +1019,6 @@ Internet-Draft                    CLESS                       March 2019
    software update supply chain attack or an elaborate attacker breaking
    the update process, as for example seen with the Flamer group (see
    [FLAMER]).
-
-
-
-
-Taddei, et al.         Expires September 20, 2019              [Page 18]
-
-Internet-Draft                    CLESS                       March 2019
-
 
    A recent survey found that fewer than 10% of consumer IoT companies
    follow vulnerability disclosure guidelines at all, which is regarded
@@ -1024,6 +1034,37 @@ Internet-Draft                    CLESS                       March 2019
    and new attacks are discovered.
 
 10.1.2.  Mirai IoT bot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 19]
+
+Internet-Draft                    CLESS                        July 2019
+
 
    +-------------+-----------------------------------------------------+
    | Description | A Mirai bot infecting various IoT devices through   |
@@ -1061,9 +1102,24 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 19]
-
-Internet-Draft                    CLESS                       March 2019
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 20]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    +-------------+-----------------------------------------------------+
@@ -1117,9 +1173,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 20]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020               [Page 21]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    +-------------+-----------------------------------------------------+
@@ -1173,9 +1229,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 21]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020               [Page 22]
+
+Internet-Draft                    CLESS                        July 2019
 
 
 10.2.5.  Users bypass the endpoint security
@@ -1229,9 +1285,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 22]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020               [Page 23]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    exposed.  An endpoint solution needs to either patch the vulnerable
@@ -1285,9 +1341,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 23]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020               [Page 24]
+
+Internet-Draft                    CLESS                        July 2019
 
 
 10.4.  Suboptimality and gray areas
@@ -1341,9 +1397,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 24]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020               [Page 25]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    that source, what files were involved and what behavior the clients
@@ -1397,9 +1453,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 25]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020               [Page 26]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    An endpoint solution might be able to detect this behaviour,
@@ -1453,9 +1509,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 26]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020               [Page 27]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    endpoint to detect such an ongoing attack, without knowledge from
@@ -1509,9 +1565,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 27]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020               [Page 28]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    customers that deploy both network and endpoint security products,
@@ -1565,9 +1621,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 28]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020               [Page 29]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    corroborated by network products, it seems probable that the
@@ -1621,9 +1677,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 29]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020               [Page 30]
+
+Internet-Draft                    CLESS                        July 2019
 
 
 11.2.2.  Unauthorized internal vulnerability scans
@@ -1677,9 +1733,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 30]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020               [Page 31]
+
+Internet-Draft                    CLESS                        July 2019
 
 
               +---------------------+-----------------------+
@@ -1733,9 +1789,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 31]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020               [Page 32]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    alerts, even if of low severity, should be examined.  It is
@@ -1789,9 +1845,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 32]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020               [Page 33]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    securing the IoT device or endpoint, but also security for the entire
@@ -1845,9 +1901,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 33]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020               [Page 34]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    (2) include audit trails designed to detect and respond to
@@ -1901,9 +1957,9 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 34]
-
-Internet-Draft                    CLESS                       March 2019
+Taddei, et al.           Expires January 9, 2020               [Page 35]
+
+Internet-Draft                    CLESS                        July 2019
 
 
    [CANDID1]  Wueest, C., "How my TV got infected with ransomware and
@@ -1942,25 +1998,29 @@ Internet-Draft                    CLESS                       March 2019
               Survey", June 2018, <https://www.sans.org/reading-
               room/whitepapers/clients/paper/38460>.
 
+   [EPTAXONOMY]
+              MacFadden, M., "Endpoint Taxonomy for CLESS", July 2019,
+              <https://www.ietf.org/id/
+              draft-mcfadden-smart-endpoint-taxonomy-for-cless-00.txt>.
+
    [ERICSSON]
               Ericsson, ., "Internet of Things forecast", n.d.,
               <https://www.ericsson.com/en/mobility-report/
               internet-of-things-forecast>.
 
+
+
+
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 36]
+
+Internet-Draft                    CLESS                        July 2019
+
+
    [EURLEX]   EUP, ., "Directive (EU) 2016/1148", July 2016,
               <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=urise
               rv:OJ.L_.2016.194.01.0001.01.ENG&toc=OJ:L:2016:194:TOC>.
-
-
-
-
-
-
-
-Taddei, et al.         Expires September 20, 2019              [Page 35]
-
-Internet-Draft                    CLESS                       March 2019
-
 
    [FLAMER]   Symantec, ., "W32.Flamer Microsoft Windows Update Man-in-
               the-Middle", June 2012,
@@ -1990,6 +2050,11 @@ Internet-Draft                    CLESS                       March 2019
               layered-approach-critical-to-effective-endpoint-
               protection/>.
 
+   [I-D.draft-mcfadden-smart-endpoint-taxonomy-for-cless-00]
+              McFadden, M., "Endpoint Taxonomy for CLESS", draft-
+              mcfadden-smart-endpoint-taxonomy-for-cless-00 (work in
+              progress), July 2019.
+
    [IMDAIOTG]
               IMDA, ., "IMDA IoT Cyber Security Guide", January 2019,
               <https://www.imda.gov.sg/-/media/imda/files/
@@ -1997,6 +2062,17 @@ Internet-Draft                    CLESS                       March 2019
               open-for-public-comments/
               consultation-for-iot-cyber-security-guide/
               imda-iot-cyber-security-guide.pdf>.
+
+
+
+
+
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 37]
+
+Internet-Draft                    CLESS                        July 2019
+
 
    [IOTPATCHING]
               Rogers, D., "Handling vulnerabilities as an IoT vendor",
@@ -2007,16 +2083,6 @@ Internet-Draft                    CLESS                       March 2019
    [IOTSFCF]  IoTSF, ., "IoT Security Compliance Framework", December
               2018, <https://www.iotsecurityfoundation.org/
               best-practice-guidelines/>.
-
-
-
-
-
-
-Taddei, et al.         Expires September 20, 2019              [Page 36]
-
-Internet-Draft                    CLESS                       March 2019
-
 
    [ISTRUST]  ISOC, ., "Internet of Things (IoT) Trust Framework v2.5",
               May 2018,
@@ -2057,22 +2123,19 @@ Internet-Draft                    CLESS                       March 2019
               content/uploads/2019/02/
               ndss2019_03B-1-2_Kotzias_paper.pdf>.
 
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 38]
+
+Internet-Draft                    CLESS                        July 2019
+
+
    [NETTODAY]
               Dix, J., "Layered Security Defenses What layer is most
               critical network or endpoint", July 2011,
               <https://www.networkworld.com/article/2220204/tech-
               debates/layered-security-defenses--what-layer-is-most-
               critical--network-or-endpoint-.html>.
-
-
-
-
-
-
-Taddei, et al.         Expires September 20, 2019              [Page 37]
-
-Internet-Draft                    CLESS                       March 2019
-
 
    [NINESIGNS]
               Smith, K., "9 signs your endpoint security isn't working",
@@ -2116,19 +2179,18 @@ Internet-Draft                    CLESS                       March 2019
               <https://www.computerweekly.com/tip/
               SQL-injection-detection-tools-and-prevention-strategies>.
 
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 39]
+
+Internet-Draft                    CLESS                        July 2019
+
+
    [STATISTA1]
               Statista, ., "Internet of Things (IoT) connected devices
               installed base worldwide from 2015 to 2025 (in billions)",
               n.d., <https://www.statista.com/statistics/471264/
               iot-number-of-connected-devices-worldwide/>.
-
-
-
-
-Taddei, et al.         Expires September 20, 2019              [Page 38]
-
-Internet-Draft                    CLESS                       March 2019
-
 
    [STATISTA2]
               Statista, ., "Size of Internet of Things market worldwide
@@ -2173,19 +2235,18 @@ Appendix A.  Contributors
       Symantec
       chris_larsen@symantec.com
 
+
+
+Taddei, et al.           Expires January 9, 2020               [Page 40]
+
+Internet-Draft                    CLESS                        July 2019
+
+
    o  Andre Engel
       Symantec
-      andre_angel@symantec.com
+      andre_ngel@symantec.com
 
    o  Kevin Roundy
-
-
-
-Taddei, et al.         Expires September 20, 2019              [Page 39]
-
-Internet-Draft                    CLESS                       March 2019
-
-
       Symantec
       kevin_roundy@symantec.com
 
@@ -2232,14 +2293,9 @@ Authors' Addresses
 
 
 
+Taddei, et al.           Expires January 9, 2020               [Page 41]
 
-
-
-
-
-Taddei, et al.         Expires September 20, 2019              [Page 40]
-
-Internet-Draft                    CLESS                       March 2019
+Internet-Draft                    CLESS                        July 2019
 
 
    Dominique Lazanski
@@ -2293,4 +2349,4 @@ Internet-Draft                    CLESS                       March 2019
 
 
 
-Taddei, et al.         Expires September 20, 2019              [Page 41]
+Taddei, et al.           Expires January 9, 2020               [Page 42]
