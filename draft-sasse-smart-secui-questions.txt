@@ -1,0 +1,276 @@
+﻿
+
+
+
+Supporting Usable Security UIs                                      M A Sasse
+Internet-Draft                                                		  UCL
+Intended status: Informational                               	 July 8, 2019
+Expires: January 8, 2020
+
+
+                Open Questions in Supporting Secure User Interactions
+                   draft-sasse-smart-secui-questions-00
+
+Abstract
+
+   This document describes open questions in supporting usable security at the UI level, 
+   as stimulated by the SMART themes of research. The questions are split into defining 
+   a set of manageable security tasks for countering the most common attacks, and 
+   the UI elements for signalling whether an intended action is secure. Once these
+   have been defined, the question how these can be supported at the protocol level
+   may be raised in another venue.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the provisions
+   of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on January 9, 2020.
+
+Copyright Notice
+
+   Copyright (c) 2017 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+   
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (https://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+   to this document.  Code Components extracted from this document must
+   include Simplified BSD License text as described in Section 4.e of
+   the Trust Legal Provisions and are provided without warranty as
+   described in the Simplified BSD License.
+
+
+
+Sasse                 Expires January 8, 2020                 [Page 1]
+
+Internet-Draft                SECUI questions                 July 2020
+
+
+Table of Contents
+
+   1.  Introduction to Usable Security UI . . . . . . . . . . . . . .  2
+   2.  Questions . . . . . . . . . . . . . . . . . . . . . . . . . .   1
+     2.1.  A Vocabulary of Usable Security Properties . . . . . . . .  2
+     2.2.  Usable Security basics and criteria . . . . . . . . . . . . 2
+     2.3.  The role of trust signalling and UI indicators 
+   3.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .   3
+   4.  Normative References  . . . . . . . . . . . . . . . . . . . .   4
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   4
+
+1.  Introduction to Usable Security and UI indicators
+
+   In the current Internet environment, many attacks target end-users, 
+   stealing credentials and information, or directing them to malicious sites.
+   Current countermeasures consist of asking users to check a number of 
+   security indicators before they proceed.  There is evidence from recent
+   usable security research that this approach is not effective, because
+   (1) current indicators are not reliable enough, (2) the security tasks
+   created for users are difficult, time-consuming, disruptive and annoying. 
+   This does not only mean that the security measures are not effective,
+   but that users suffer from security fatigue and regard online security
+   as an "impossible" task, which plays into the hands of the attackers.
+ 
+   There is a consensus emerging among academic and industry researchers
+   that we need to improve the technology to simplify security for users 
+   and protect online activity more effectively.
+   The development of manageable and widely applicable security tasks, and 
+   widely recognised security indicators at UI level would be key steps 
+   to moving on from this low point. Changes at the protocol level may 
+   be needed to support these.
+
+
+2.  Questions
+
+   Security researchers and industry have developed many measures to counter
+   the most common attacks on the Internet, such as phishing. But from usable 
+   security research, there is ample evidence that people are not able and/or 
+   do not want to perform the tasks that security experts have created - Google 
+   researcher Emily Stark, for instance, recently coined the term "URLephant in 
+   the room" to describe the fact that even if they were willing, users cannot
+   reliably check URLs and detect the malicious ones 
+   https://www.usenix.org/conference/enigma2019/presentation/stark. 
+  
+
+   User experience of impossible, effortful and security measures that often
+   turn out to be ineffective is not only costly, but leads to negative feelings 
+   and security fatigue, as described by NIST Human Factors Lead Mary Theofanos 
+   (https://www.nist.gov/video/cybersecurity-fatigue).
+
+   There needs to be more reliable detection and signalling of what is secure,
+   and what is not. The question is how we bring security and usability knowledge 
+   together to move on from the current state of affairs and create effective and 
+   'doable' security.
+      
+   This document identifies some of the challenges and questions involved in
+   delivering usable security solutions, as a starting point for discussion and 
+   to scope out future research efforts within the SMART theme.
+
+
+
+
+
+Sasse                	Expires January, 2020                 [Page 2]
+
+Internet-Draft                SECUI questions                 July 2019
+
+
+2.1.  A Vocabulary of Usable Security and User Interactions
+
+   In order to define the security tasks and UI elements, we will need to 
+   develop  a unified vocabulary for describing attacks, security countermeasures,
+   and corresponding users tasks and actions. Elements of this vocabulary will be 
+   based on the ISO 9241 Usability Standard.
+
+   The first question will be: how do we define "secure" and "usable",
+   what criteria should have to be met for describing a user action as such?
+
+2.2.  Usable Security Basics and Criteria
+
+   
+   When users do not follow security rules or make mistakes, the first response of 
+   security experts is security awareness and education: they try to ‘fit the human 
+   to the task’. But Human Factors Engineering research established decades ago that
+   ‘fitting the task to the human’ whenever possible produces more effective outcomes
+   and is more efficient. Security awareness and training cannot counteract impossible
+   and effortful security tasks - thus usable needs to establish the "ground rules" for
+   successful interaction.
+
+   The ISO defines usability (ISO 9241- 11:2018) defines usability as 
+   “The effectiveness, efficiency and satisfaction with which specified users achieve 
+    specified goals in particular environments.”
+
+   The criteria by which usability is assessed are
+   1. effectiveness: the accuracy and completeness with which specified users can achieve 
+   specified goals in particular environments
+   2. efficiency: the resources expended in relation to the accuracy and completeness 
+   of goals achieved
+   3. satisfaction: the comfort and acceptability of the work system to its users and 
+   other people affected by its use. 
+
+   From a practical point of view, making security tasks ‘fit’ or ‘usable’ means establishing 
+   a fit with 4 key elements (Sasse, Brostoff & Weirich 2001):
+
+   1. the capabilities and limitations of the target users
+   2. the goals those users have, and the tasks they carry out to achieve them
+   3. the physical and social context of use, and
+   4. the capabilities and limitations of the device on which the security mechanism 
+   is used.
+   
+   These four elements set the constraints for the performance of the user.
+   The challenge for usable security is that security is a secondary task - user 
+   attention is focused on the primary task, and competition for resources will 
+   almost always lead to the security task being 'squeezed out'.
+
+   The second question thus is: what is the set of manageable security tasks users
+   can perfrom to counter common threats in online interactions?
+
+
+
+
+Sasse                       Expires July 8, 2020                 [Page 3]
+
+Internet-Draft                SECUI questions                 	July 2019
+
+
+2.3.  The role of trust signalling
+
+   Users interacting with technology are not trying to avoid risks altogether,
+   so creating security mechanisms that stop them from encountering any risk
+   would not be usable, and also economically ruinous. Equally ruinous would be
+   have to  expend significant time and effort on every single transaction to assess 
+   whether it is secure - trust is a "shortcut" mechanism for conducting a full
+   risk-benefit assessment before deciding whether to go ahead.
+   Empirical economics research on trust has shown that for marketplaces to function
+   long-term, people need to be able place their trust correctly, and have confidence
+   in their ability to do so.
+
+   To help users need reliable indicators. For instance, people trust a transaction
+   partner who has proved reliable in the past. Attackers exploit this through mimicry
+   attacks - pretending to be a website or email correspondent the user knows.  
+   Detecting impersonation is currently requires too much effort - users need
+   reliable, quick warning if emails or websites they often use actually come from
+   different sources. Another useful indicator would be if characteristics of an 
+   an established transaction partner change (e.g. their location changes, or their
+   transaction volume increases or decreases significantly). Trust signalling on
+   the Internet currently relies on trust symbols established by a number of schemes.
+   These are not secure because symbols are easily copied and subverted, and not usable
+   because users expect far more protection than they are able to offer.
+
+   The third question: how can we establish reliable trust signals?
+
+2.4 UI Elements
+
+   Users need a small number of UI elements representing security properties they
+   can understand and trust.  So rather than a myriad of trust symbols, they need
+   consistent indicators representing a small set of relevant properties.
+
+   TBA
+
+   The fourth question is: what UI elements can be used to signal whether security
+   properties are met?
+
+
+
+
+Sasse                 	Expires January 8, 2020                 [Page 4]
+
+Internet-Draft                SECUI questions                 July 2019
+
+
+3.  Acknowledgments
+
+   Many thanks to members of the UK RISCS Community (www.riscs.org) and
+   the Human Factors Division of NIST, especially Mary Theofanos, Kirsten
+   Greene, Michelle Steves and Brian Stanton, who have collaborated with 
+   the author over the past decade and shaped the development of these ideas.
+   This work is partially supported by the UK National Cyber Security Centre 
+   (NCSC) which co-funds the RISCS Project.
+
+4.  Normative References
+
+   ISO 9241-11:2018 Ergonomics of human-system interaction. 
+   https://www.iso.org/standard/63500.html 
+
+Author's Address
+
+   M. Angela Sasse
+   Department of Computer Science
+   UCL
+   Gower Street
+   London WC1E 6BT
+   UK
+
+   Email: a.sasse@ucl.ac.uk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Trammell                 Expires April 27, 2018                 [Page 5]
