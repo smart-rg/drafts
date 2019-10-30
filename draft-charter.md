@@ -1,100 +1,31 @@
-# Stopping Malware and Researching Threats (SMART) Proposed Research Group Charter 
- 
-The Stopping Malware and Researching Threats Research Group (or SMART RG) will research attacks and defence methods where these relate to newly developed and existing IETF protocols. 
+#Stopping Malware and Researching Threats (SMART) Proposed Research Group Charter
 
+The Stopping Malware and Researching Threats Research Group (or SMART RG) will research attacks and defence methods where these relate to newly developed and existing network protocols, including those protocols published by the IETF. 
 Every work item in this group will fall in one of four categories:
-1. Research on attacks or defences enabled or disabled by IETF protocols, and recommending protocol design fixes or considerations as a result – including privacy considerations
-2.	Papers on principles/key concepts in attack defence, to underpin attack defence research of protocols and evidence a threat landscape
-3.	Creating methodologies for researchers to consistently analyse protocols for attack defence, and use these to perform such analysis
-4.	To scope out specific security research problems outside of the above three points. The sole aim of these scoping exercises is to create an Internet Draft and establish feasibility of creating a separate IRTF security research group on that specific security problem.
 
-Attack defence generally can seem broad, and to a non-expert, these categories may still seem broad. However, protocols form a small but impactful part of attacks, and many areas of attack defence are ruled out of scope (see OUT OF SCOPE for more). Point 4 aims to help good ideas with effort behind them to navigate the process to start an initiative in the IRTF.
- 
+1. Bootstrapping papers on principles/key concepts in attack defence, to underpin attack defence research of protocols
 
- 
-## BACKGROUND 
+2.	Creating methodologies for researchers to consistently analyse protocols for attack defence, and use these to perform such analysis
 
-The IRTF is in a unique position to do research and establish robust evidence on these topics. This group aims to research the effect of protocol changes on attacks, defences and the threat landscape. Once the existing landscape is established, we aim to stimulate methodical research into attack defence methods and assessments for new protocols. Protocols are already rigorously assessed for certain security properties, yet researching how protocols relate to attacks and defences is a valuable but under-researched field. This group would begin that work.
+3.	Research on attacks or defences enabled or disabled by IETF protocols, and recommending protocol design fixes or considerations as a result – including privacy considerations
 
-If new detection techniques are developed, this group will adhere to the guidelines of [RFC 2804](https://tools.ietf.org/html/rfc2804) for developing new detection techniques. 
- 
-## AIMS 
-This research group has these major aims:  
-- To research the rich area where new protocols are designed and deployed, and used by malicious actors. This includes attacks, the new ecosystem created by new protocols, defence mechanisms used or obsoleted by new protocols, and malicious actor methodology where IETF protocols play a role in the attack chain.
-- To **survey existing methods and suggest design considerations** for prevention, detection and mitigation of attacks where IETF protocols play a role in some stage of the attack.  
-- To highlight the **attack mitigation impact**, both positive and negative, of **protocol design, deployment and operation**.  
-- To create **researched and referenceable material** for designers of protocols about the ecosystem in which protocols exist (such as what can be reasonably expected by endpoint security solutions and the communication lifecycle of malware), which are external to protocol design but directly relate to protocol design decisions and assertions.
-- To become a **centre of expertise on attack defence** in the IETF/IRTF. 
-- To provide research that can form part of the basis for future reviews of RFC 3552: Security Considerations.
- 
-## OUTPUTS 
-The research group plans to create documents that may include, but are not limited to, the following:  
-- **Internet drafts**, some of which may be published through the IRTF RFC stream. These will include outline problem statements, use cases, case studies and convey research results. They will be written for use by other groups to inform protocol designers, implementers and users.
-  - **Threat Landscape** - to create a methodology of analysing the threat landscape
-  - **Methodologies** - to enable researchers to perform consistent review and research within SMART and provide confidence in findings
-  - **Endpoint Capabilities and Limitations** - to provide protocol designers with understanding of what is possible on the endpoint security-wise
-  - **Malware attack life cycle** – a foundation to show where the interaction of IETF protocols is (and is not) in a full attack chain, allowing further analysis.
-- **Policy papers**, for in-depth analysis and discussion of the relationship between attack defence and the Internet architecture and protocols.  
-- **Research papers**, containing quantitative evidence of attacks and the success of defence methods against them, as well as theoretical and formal analyses of the implications of proposed protocols on attack defence. 
-- **A survey** using a SMART-defined methodology of current and historic IETF material to discover existing deliberations on attack defence.
- 
-SMART meetings may contain informational content for protocol designers to broaden their understanding of the threat landscape, which is not intended to be published into the form of Internet Drafts. This informational content will be on topics that include, but are not limited to, the following: 
-- Case studies of attacks on networks and endpoints
--	Summarised statistics on volume of attacks and threats, categorised by type of attack
--	Summarised statistics on attack detection techniques and their success, including their effectiveness on different versions of protocols
--	Attack mitigation techniques
- 
-Within the first year, the research group aims to:  
--	Publish an informational draft, describing the capabilities and limitations of endpoint security
--	Improve knowledge within the IETF/IRTF of attack defence
--	Publish an informational draft on: "Attack Defence Considerations for Protocol Design and Deployment"
--	Host a "Capture The Flag" experiment to simulate an attack, including "Layer 8/9" factors, putting IETF hackathon attendees in the position of defending/attacking with different versions of protocols
- 
- 
-## MEMBERSHIP 
-Membership is open to any interested parties who intend to remain current with the published documents and mailing list issues. Wide participation from industry, academia, government and non-profits is encouraged.  
+4. 	Identify specific security research problems outside of the above three points.
 
-## RESEARCH WE WOULD LIKE TO SEE
-This group focuses on the effects of IETF protocols on the threat landscape.
+## BACKGROUND
+The IRTF is in a unique position to do research and establish evidence on how network protocols enable or disable malware and other threats. This group will describe and characterise the effect of protocol changes on attacks, defences and the threat landscape. Once the existing landscape is established, we aim to stimulate methodical research into attack defence methods and assessments for new protocols. Protocols are already rigorously assessed for certain security properties, yet researching how protocols relate to attacks and defences is a valuable but under-researched field. This group would begin that work.
 
-SMART meetings will be co-located with IETF meetings, and an opportunity to share research with the IETF/IRTF community. We therefore welcome drafts and presentations from industry, academia and government at SMART meetings, on the following topics:
-1. **Research on attacks or defences enabled or disabled by IETF protocols**
-    1. DDoS over UDP; attacks and new defences (including CoAP and QUIC)
-    2. "Evasive technologies: can they prevent malware without reducing privacy for other users?"
-2. **Papers on principles/key concepts in attack defence, to underpin attack defence research of protocols and evidence a threat landscape**
-    1. Endpoint framework model, to create a framework that allows endpoint security analysis to be done consistently ([draft-mcfadden-smart-endpoint-taxonomy-for-cless](https://datatracker.ietf.org/doc/draft-mcfadden-smart-endpoint-taxonomy-for-cless/))
-    2.	Endpoint security, its capabilities and its limitations ([draft-taddei-smart-cless-introduction](https://datatracker.ietf.org/doc/draft-taddei-smart-cless-introduction/))
-    3.	A threat landscape for endpoints, based on [draft-taddei-smart-cless-introduction](https://datatracker.ietf.org/doc/draft-taddei-smart-cless-introduction/) and [draft-mcfadden-smart-endpoint-taxonomy](https://datatracker.ietf.org/doc/draft-mcfadden-smart-endpoint-taxonomy-for-cless/)
-    4.	Malware Attack Model, characterising the stages of malware and where malware communicates, i.e. where it could use an IETF protocol
-    5.	"Characterising Malware's Use of Evasive Technologies"
-    6. A discussion of the Internet threat model ([draft-lazanski-smart-users-internet](https://datatracker.ietf.org/doc/draft-lazanski-smart-users-internet/))
-3. **Creating methodologies for researchers to consistently analyse protocols for attack defence, and use these to perform such analysis**
-    1. Methodology for analysing RFCs ([draft-mcfadden-smart-rfc3552-research-methodology](https://datatracker.ietf.org/doc/draft-mcfadden-smart-rfc3552-research-methodology/))
-    2. Security Considerations Research, using [established methodology](https://datatracker.ietf.org/doc/draft-mcfadden-smart-rfc3552-research-methodology/)
-4. **To scope out specific security research problems outside of the above three points**
-    1. CARIS2, future CARIS workshop reports, and research ideas from these ([draft-moriarty-caris2](https://datatracker.ietf.org/doc/draft-moriarty-caris2/))
-    2. Open Questions in Supporting Secure User Interactions: UI/UX design and what features protocols could provide to help 
+## GOALS
+This research group has these major goals: 
 
-## SCOPE
-All research in SMART will have a tie-in to IETF protocols or evidence the threat landscape in which IETF protocols exist (e.g. endpoint considerations); in the world of IETF this may seem very broad because that covers all of IETF work, but in the world of attack defence, that is a small part of the whole problem space, yet an important one.
+- To research the rich area where new protocols are designed and deployed, and used by malicious actors. This includes attacks, the new ecosystem created by new protocols, defence mechanisms used or obsoleted by new protocols, and malicious actor methodology where network protocols play a role in the attack chain.
+- To create **researched and referenceable** material for designers of protocols about the ecosystem in which protocols exist (such as what can be reasonably expected by endpoint security solutions and the communication lifecycle of malware), which are external to protocol design but directly relate to protocol design decisions and assertions.
 
-Attack defence covers a lot; the following (at least) are out of scope for SMART:
--	Malware reverse engineering
--	Attribution of attacks beyond TTPs
--	Identification of victims
--	Endpoint patching mechanisms
--	Forensic analysis of infected endpoints
--	Post-infection clean-up
--	SOC structures
--	Creation of taxonomies/ontologies for attacks
--	Efficient threat sharing models (unless directly related to protocols)
--	Threat information exchange
--	How to manage a SOC or an incident effectively
--	Memory dump analysis
--	Automating of playbook responses
--	UI and UX design (except a single draft to scope out the viability of the problem space for another RG)
--	Best practice for enterprise deployments
--	IoT updating mechanisms
--	Critical National Infrastructure -specific problems
--	Architecture of data centres
--	Hardware vulnerabilities
+## OUTPUTS
+The research group plans to create documents that may include problem statements, use cases, case studies, methodologies, surveys, foundational materials in the area and research results. They will be written for use and interest of other groups. 
+
+Two such foundational materials are **Endpoint Capabilities and Limitations** – to evidence to protocol designers what is possible and realistic on the endpoint security-wise, and what is not – and **Malware Attack Lifecycle** – a foundation to show where the interaction of IETF protocols is (and is not) in a full attack chain, allowing further analysis.
+
+SMART meetings may contain informational content for protocol designers to broaden their understanding of the threat landscape, which is not intended to be published into the form of Internet Drafts. This informational content could include summarised statistics on volume of attacks and threats,  detection techniques and their success, including their effectiveness on different versions of protocols and attack mitigation techniques.
+
+## MEMBERSHIP
+Membership is open to any interested parties who intend to remain current with the published documents and mailing list issues. Wide participation from industry, academia, government and non-profits is encouraged. 
