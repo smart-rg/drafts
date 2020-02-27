@@ -1,12 +1,12 @@
 SMART                                                        M McFadden
 Internet Draft                             internet policy advisors ltd
-Intended status: Informational                             July 8, 2019
-Expires: January 8, 2020
+Intended status: Informational                         February 5, 2020
+Expires: July 30, 2020
 
 
 
                         Endpoint Taxonomy for CLESS
-          draft-mcfadden-smart-endpoint-taxonomy-for-cless-00.txt
+            draft-mcfadden-smart-endpoint-taxonomy-for-cless-01
 
 
 Status of this Memo
@@ -30,11 +30,11 @@ Status of this Memo
    The list of Internet-Draft Shadow Directories can be accessed at
    http://www.ietf.org/shadow.html
 
-   This Internet-Draft will expire on January 8, 2020.
+   This Internet-Draft will expire on August 4, 2020.
 
 Copyright Notice
 
-   Copyright (c) 2019 IETF Trust and the persons identified as the
+   Copyright (c) 2020 IETF Trust and the persons identified as the
    document authors. All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -47,14 +47,14 @@ Copyright Notice
    the Trust Legal Provisions and are provided without warranty as
    described in the Simplified BSD License.
 
-
-
-McFadden               Expires January 8, 2020                 [Page 1]
-
-Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
-
-
 Abstract
+
+
+
+McFadden                Expires August 4, 2020                  [Page 1]
+
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
+
 
    A separate document [I-D:draft-taddei-smart-cless-introduction]
    (CLESS) attempts to establish the capabilities and limitations of
@@ -76,50 +76,54 @@ Table of Contents
    2. Conventions used in this document..............................4
    3. Problem Statement..............................................4
    4. The Endpoint in CLESS..........................................4
-   5. Taxonomy.......................................................5
-      5.1. Traditional and Enterprise Computing Equipment [TECE].....6
-         5.1.1. Description..........................................6
-         5.1.2. Endpoint characteristics.............................6
-      5.2. Personal Computing Equipment..............................6
-         5.2.1. Description..........................................6
-         5.2.2. Endpoint characteristics.............................7
-      5.3. Human Interface Devices...................................8
-         5.3.1. Endpoint description.................................8
-         5.3.2. Endpoint characteristics.............................8
-      5.4. Human Sensor Devices......................................8
-         5.4.1. Endpoint characteristics.............................8
-      5.5. Non-human Sensor Devices..................................9
-         5.5.1. Endpoint Description.................................9
-         5.5.2. Endpoint characteristics.............................9
-      5.6. Peripheral Computing Equipment and Embedded Endpoints....10
-         5.6.1. Endpoint Description................................10
-         5.6.2. Endpoint characteristics............................10
-      5.7. Internet Infrastructure Devices..........................11
-         5.7.1. Endpoint Description................................11
-         5.7.2. Endpoint characteristics............................11
-      5.8. Application Layer Endpoints..............................12
-         5.8.1. Description.........................................12
-         5.8.2. Endpoint Characteristics............................12
-   6. Security Considerations.......................................12
+   5. Taxonomy and Hierarchy.........................................5
+   6. Taxonomy.......................................................6
+      6.1. Traditional and Enterprise Computing Equipment [TECE].....6
+         6.1.1. Description..........................................6
+         6.1.2. Endpoint characteristics.............................7
+      6.2. Personal Computing Equipment..............................7
+         6.2.1. Description..........................................7
+         6.2.2. Endpoint characteristics.............................8
+      6.3. Human Interface Devices...................................8
+         6.3.1. Endpoint description.................................8
+         6.3.2. Endpoint characteristics.............................9
+      6.4. Human Sensor Devices......................................9
+         6.4.1. Endpoint characteristics............................10
+      6.5. Non-human Sensor Devices.................................10
+         6.5.1. Endpoint Description................................10
+         6.5.2. Endpoint characteristics............................11
+      6.6. Peripheral Computing Equipment and Embedded Endpoints....11
+         6.6.1. Endpoint Description................................11
+         6.6.2. Endpoint characteristics............................12
+      6.7. Internet Infrastructure Devices..........................12
+         6.7.1. Endpoint Description................................12
+         6.7.2. Endpoint characteristics............................13
+      6.8. Application Layer Endpoints..............................13
+         6.8.1. Description.........................................13
+         6.8.2. Endpoint Characteristics............................13
+      6.9. Edge Network and Acquisition Endpoints...................14
+         6.9.1. Description.........................................14
 
 
-McFadden               Expires January 8, 2020                 [Page 2]
+McFadden                Expires August 4, 2020                  [Page 2]
 
-Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
 
 
-   7. IANA Considerations...........................................12
-   8. References....................................................12
-      8.1. Normative References.....................................12
-      8.2. Informative References...................................13
-   9. Acknowledgments...............................................13
-   Appendix A. Document History.....................................14
+         6.9.2. Endpoint characteristics............................14
+   7. Security Considerations.......................................15
+   8. IANA Considerations...........................................15
+   9. References....................................................15
+      9.1. Normative References.....................................15
+      9.2. Informative References...................................15
+   10. Acknowledgments..............................................15
+   Appendix A. Document History.....................................16
 
 1. Introduction
 
    A document entitled "Capabilities and Limitations of an Endpoint-only
    Security Solution (CLESS) [I-D. draft-taddei-smart-cless-
-   introduction-00] attempts to initiate research into the limits of
+   introduction-02] attempts to initiate research into the limits of
    endpoint-only security solutions. The document identifies changes in
    technology, economics and protocol development that have impacted the
    provision of endpoint security.
@@ -152,16 +156,17 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
    endpoint security. In addition, most are almost immediately out-of-
    date when published.
 
+
+
+
+McFadden                Expires August 4, 2020                  [Page 3]
+
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
+
+
    This document takes a different approach: the taxonomy here is
    intended to support the work of CLESS and provide a classification
    system that may make it possible to group endpoints in related
-
-
-McFadden               Expires January 8, 2020                 [Page 3]
-
-Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
-
-
    categories for the purpose of discussing their security
    characteristics.  While a general-purpose taxonomy of Internet
    endpoints might be useful in a variety of settings, it is not the
@@ -208,12 +213,9 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
 
 
 
-
-
-
-McFadden               Expires January 8, 2020                 [Page 4]
+McFadden                Expires August 4, 2020                  [Page 4]
 
-Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
 
 
    +------------------------------------------------+
@@ -243,7 +245,48 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
    help in identifying categories of devices that share similar endpoint
    security characteristics.
 
-5. Taxonomy
+5. Taxonomy and Hierarchy
+
+   One suggestion for the taxonomy for endpoints is to consider a
+   hierarchy of endpoints that collects similar endpoint types in large
+   categories and then distinguishes between them ion "sub-groups" or
+   lower levels of the taxonomy.
+
+   The advantage to CLESS is that the groupings may provide a way to
+   categorize threats and mitigations to large classes of endpoints on
+   the Internet while providing the ability for differentiation. An
+   example might be a class of endpoints characterized as "constrained
+   devices."
+
+   As an example, "constrained devices" might be further subdivided into
+   sub-classes such as sensors, embedded processors, specific (or,
+   special) purpose single-use processors, mesh gateways, and so forth.
+   It can even be imagined that the second level of the hierarchy could
+   be further subdivided by further distinguishing the endpoint types.
+
+
+
+
+McFadden                Expires August 4, 2020                  [Page 5]
+
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
+
+
+   The current version of the draft does not take this approach. One of
+   the goals of the endpoint taxonomy is to provide enough
+   differentiation and specificity to ensure that a later CLESS draft
+   can successfully discuss common threats and mitigations for each of
+   the categories in the taxonomy. By providing a ever greater hierarchy
+   of endpoint types, it becomes difficult to scale a CLESS document
+   that discusses threats and mitigations to the highly specific
+   endpoint types.
+
+   [Editor's note -> adding hierarchy was a suggestion at the Prague
+   IETF 104 meeting. It is possible, based on further input that more
+   detailed hierarchy could be considered for CLESS endpoints, but that
+   has not been added to this version of the endpoint taxonomy.]
+
+6. Taxonomy
 
    Others have attempted to provide general-purpose taxonomy and device
    classification guides (informative references to be provided in a
@@ -261,18 +304,9 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
    nine different classes and then attempt to carefully describe the
    characteristics of devices in each class.
 
+6.1. Traditional and Enterprise Computing Equipment [TECE]
 
-
-
-
-McFadden               Expires January 8, 2020                 [Page 5]
-
-Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
-
-
-5.1. Traditional and Enterprise Computing Equipment [TECE]
-
-5.1.1. Description
+6.1.1. Description
 
    Traditional and Enterprise Computing Equipment is characterized by
    its extremely high-capacity for transactional volume, storage and
@@ -284,10 +318,18 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
    characterized by centralized, shared computing. These endpoints are
    often in large scale data centers. These endpoints are capable of
    high-availability, substantial requirements for power and
+
+
+
+McFadden                Expires August 4, 2020                  [Page 6]
+
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
+
+
    environmental control. These endpoints are also characterized by very
    complex operating systems and user environments.
 
-5.1.2. Endpoint characteristics
+6.1.2. Endpoint characteristics
 
    o  Cost - these endpoints are characterized by extremely high cost.
 
@@ -306,24 +348,17 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
       power and environmental controls.
 
    o  Code complexity - Extremely high support for very complex code
-      including parallelism, multitaxking and multithreaded execution.
+      including parallelism, multitasking and multithreaded execution.
 
-5.2. Personal Computing Equipment
+6.2. Personal Computing Equipment
 
-5.2.1. Description
+6.2.1. Description
 
    These are endpoints designed or intended to be used by an individual.
    They can be delivered as fixed, portable or virtual instantiations of
    the endpoint.  It should be noted that virtual instantiations of
    endpoints introduce complexities in defining the characteristics of
    the endpoints.  In each case, the device supports a mechanism for
-
-
-McFadden               Expires January 8, 2020                 [Page 6]
-
-Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
-
-
    human-interface and has the capability for both local storage and
    processing. The personal computing equipment class is also
    characterized by relatively low cost and power requirements.
@@ -337,10 +372,18 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
    Personal computing endpoints usually have at least one, and often
    many, network links - often supporting a variety of network
    connectivity technologies.  These endpoints are also characterized by
+
+
+
+McFadden                Expires August 4, 2020                  [Page 7]
+
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
+
+
    having a human interface - either integral to the computing device
    itself or supplied externally to the computing device.
 
-5.2.2. Endpoint characteristics
+6.2.2. Endpoint characteristics
 
    o  Cost - these endpoints have a huge range of costs, from extremely
       inexpensive for simple "personal computer on a board" endpoints to
@@ -370,21 +413,45 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
    o  Code complexity - personal computing endpoints support complex
       code and often parallel and multithreaded execution of code.
 
+6.3. Human Interface Devices
+
+6.3.1. Endpoint description
+
+   Human interface transactions begin with a task-related goal for a
+   user. This leads to a user behavior (such as pointing, typing or
+   touching) which occurs in the current computing environment. The
+   user's action then should trigger an event in the current computing
+   environment.
+
+   Early computer science research breaks the taxonomy for Human
+   Interface Devices into four large categories: input devices, pointing
+   devices, indirect pointing and speech recognition. More recent
+   research adds neural interfaces, VR sensors, and human attribute
 
 
-
-McFadden               Expires January 8, 2020                 [Page 7]
+McFadden                Expires August 4, 2020                  [Page 8]
 
-Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
 
 
-5.3. Human Interface Devices
+   sensors. In all of these cases, the endpoints have the goal of
+   providing a mechanism for user navigation, interconnection, form
+   filling, menu interaction, data entry or sensing of human input
+   (although not to be confused with the following category in the
+   taxonomy). The result is that this category of the taxonomy has been
+   characterized by extremely limited computing capability in the past.
+   In contemporary networks the human interface devices are far more
+   complex and, as a result, subject to a wider collections of risks as
+   endpoints.
 
-   TBD.
+   Since human interface devices are often the mechanism that provides
+   control of a computing resource, attacks on those devices are of
+   particular concern.  In the past, the idea that there was an external
+   threat to a mouse or a pointing device would be ignored. In contrast,
+   today's voice actuated input devices and VR interfaces are
+   sophisticated enough to represent a real platform for attack.
 
-5.3.1. Endpoint description
-
-5.3.2. Endpoint characteristics
+6.3.2. Endpoint characteristics
 
    o  Cost
 
@@ -400,7 +467,7 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
 
    o  Code complexity
 
-5.4. Human Sensor Devices
+6.4. Human Sensor Devices
 
    Description
 
@@ -413,10 +480,18 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
    The endpoints are characterized as sensor devices with the capacity
    to sense, store and report on data collected on an individual. The
    sensor may be multimodal. These endpoints are almost always
+
+
+
+McFadden                Expires August 4, 2020                  [Page 9]
+
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
+
+
    characterized by have a battery for power and having limited storage,
    networking and processing capabilities.
 
-5.4.1. Endpoint characteristics
+6.4.1. Endpoint characteristics
 
    o  Cost - Human Sensor Endpoints can range in cost from very low (for
       instance a heartbeat sensor) to quite expensive (a sensor built
@@ -424,13 +499,6 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
 
    o  Physical size - human sensors are very small and almost always
       portable.
-
-
-
-McFadden               Expires January 8, 2020                 [Page 8]
-
-Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
-
 
    o  Network link characteristics - human sensors usually have a single
       network like technology available and are capable of very limited
@@ -451,9 +519,9 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
       sense, store and forward data without reporting and analysis of
       that data.
 
-5.5. Non-human Sensor Devices
+6.5. Non-human Sensor Devices
 
-5.5.1. Endpoint Description
+6.5.1. Endpoint Description
 
    These endpoints are capable of sensing, storage, communication and
    possibly some computation. They are characterized by having very low
@@ -465,7 +533,16 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
    of communications technologies available - for instance, self-
    organizing into mesh networks.
 
-5.5.2. Endpoint characteristics
+
+
+
+
+McFadden                Expires August 4, 2020                 [Page 10]
+
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
+
+
+6.5.2. Endpoint characteristics
 
    o  Cost - Non-human Sensor Endpoints can range in cost from very low
       (for instance, a simple temperature sensor) to quite expensive (a
@@ -479,12 +556,6 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
       network links can be highly varied.  Quite often these devices are
       capable of very limited bandwidth utilization on the link to which
       they are attached.
-
-
-McFadden               Expires January 8, 2020                 [Page 9]
-
-Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
-
 
    o  User interface - non-human sensors have extremely limited, or no,
       user interface.
@@ -502,9 +573,9 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
       simply sense, store and forward data without reporting and
       analysis of that data.
 
-5.6. Peripheral Computing Equipment and Embedded Endpoints
+6.6. Peripheral Computing Equipment and Embedded Endpoints
 
-5.6.1. Endpoint Description
+6.6.1. Endpoint Description
 
    These are endpoints that are "embedded" in devices that may have a
    different primary function. An example is a network endpoint in a
@@ -518,11 +589,18 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
    These devices are characterized as being specialized for their
    particular use case and function. Their specific characteristics
    often depend upon the system, device or peripheral in which they are
+
+
+McFadden                Expires August 4, 2020                 [Page 11]
+
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
+
+
    being hosted.  As an example, the embedded endpoint gets its physical
    power and networking capabilities from  the device in which it is
    connected.
 
-5.6.2. Endpoint characteristics
+6.6.2. Endpoint characteristics
 
    o  Cost - almost never available as a standalone device - instead,
       always embedded into the peripheral or system which is hosting it.
@@ -532,13 +610,6 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
 
    o  Network link characteristics - dependent on network services
       available from the host device and not always IP-based.
-
-
-
-McFadden               Expires January 8, 2020                [Page 10]
-
-Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
-
 
    o  User interface - almost always provided by the "hosting" device.
       Many embedded endpoints share a user interface with the
@@ -554,9 +625,9 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
    o  Code complexity - limited and almost always constrained by use
       case.
 
-5.7. Internet Infrastructure Devices
+6.7. Internet Infrastructure Devices
 
-5.7.1. Endpoint Description
+6.7.1. Endpoint Description
 
    Internet Infrastructure endpoints are the physical components that
    are used to deploy a network. There is a huge variety of these
@@ -570,9 +641,19 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
    infrastructure?  Said a different way: is network infrastructure out
    of scope for CLESS?
 
-5.7.2. Endpoint characteristics
 
-   TBD, depending on the answer to the question in section 5.7.1
+
+
+
+McFadden                Expires August 4, 2020                 [Page 12]
+
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
+
+
+6.7.2. Endpoint characteristics
+
+   [ Editor's note --> TBD, depending on the answer to the question in
+   section 6.7.1 ]
 
    o  Cost
 
@@ -588,15 +669,9 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
 
    o  Code complexity
 
+6.8. Application Layer Endpoints
 
-McFadden               Expires January 8, 2020                [Page 11]
-
-Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
-
-
-5.8. Application Layer Endpoints
-
-5.8.1. Description
+6.8.1. Description
 
    A significant trend in the contemporary public Internet is to have
    applications act as completely independent agents - a situation where
@@ -619,34 +694,87 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
    no common, platform-wide approach to securing the applications or the
    traffic generated between the application and external servers.
 
-5.8.2. Endpoint Characteristics
+6.8.2. Endpoint Characteristics
 
    TBD
 
-6. Security Considerations
+
+McFadden                Expires August 4, 2020                 [Page 13]
+
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
+
+
+6.9. Edge Network and Acquisition Endpoints
+
+6.9.1. Description
+
+   The emergence of intelligent devices and things has led to new
+   network designs where data is aggregated at points topologically
+   close to where the data is gathered.  The gathered data can then have
+   the option to flow to nearby gateways, or a Wi-Fi/W-LAN (SD-WAN)
+   router/equipment, or the telco tower/rooftop towers. These often
+   perform an acquisition function that includes both aggregation and
+   data condensation.
+
+   They usually have some level of processing capability. The main task
+   for these devices is to collect the data from various other endpoints
+   and send the processed data upstream. In doing so, they often perform
+   some low-level data processing, such as data filtering (which
+   determines what data is sent/blocked) and data analytics.
+
+   The acquisition systems are often architected to talk to distributed
+   data centers and end devices; for instance, on a factory shop floor,
+   a CDN's edge PoP (Point of Presence), an edge colocation local, or a
+   metro regional datacenter for a Telco or IT Service Provider.
+
+   In all cases, these edge computing devices represent a newer class of
+   endpoints. These are endpoints that are not at the extreme edge of
+   the network, but provide services to the devices at those edges
+   (especially for those devices in the class discussed in section 6.4
+   and 6.5 above).
+
+   The threats and mitigations for this class of device is expected to
+   be significantly different from those in sections 6.4 and 6.5.
+
+6.9.2. Endpoint characteristics
+
+   o  Cost
+
+   o  Physical size
+
+   o  Network link characteristics
+
+   o  User interface
+
+   o  Processing power
+
+   o  Physical power
+
+   o  Code complexity
+
+
+McFadden                Expires August 4, 2020                 [Page 14]
+
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
+
+
+7. Security Considerations
 
    INFO (REMOVE): Every draft MUST have a Security Considerations
    section.
 
    TBD, descriptive
 
-7. IANA Considerations
+8. IANA Considerations
 
-   This document has no requirements or actions for IANA
+   This document has no requirements or actions for IANA.
 
-8. References
+9. References
 
-8.1. Normative References
+9.1. Normative References
 
    [1]   Bradner, S., "Key words for use in RFCs to Indicate Requirement
          Levels", BCP 14, RFC 2119, March 1997.
-
-
-
-McFadden               Expires January 8, 2020                [Page 12]
-
-Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
-
 
    [2]   Crocker, D. and Overell, P.(Editors), "Augmented BNF for Syntax
          Specifications: ABNF", RFC 2234, Internet Mail Consortium and
@@ -659,11 +787,11 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
              Syntax Specifications: ABNF", RFC 2234, Internet Mail
              Consortium and Demon Internet Ltd., November 1997.
 
-8.2. Informative References
+9.2. Informative References
 
    TBD
 
-9. Acknowledgments
+10. Acknowledgments
 
    This document was prepared using 2-Word-v2.0.template.dot.
 
@@ -679,32 +807,23 @@ Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-McFadden               Expires January 8, 2020                [Page 13]
+McFadden                Expires August 4, 2020                 [Page 15]
 
-Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
 
 
 Appendix A.                 Document History
 
     [[ To be removed from the final document ]]
+
+   -1
+
+   New sections on Human Interface Devices and edge network endpoints.
+
+   New section discussing the expansion of the hierarchy of the taxonomy
+   and reasons for not proceeding with that suggestion.
+
+   Editorial and grammatical corrections.
 
    -0
 
@@ -742,18 +861,9 @@ Appendix A.                 Document History
 
 
 
-
-
-
-
-
-
-
-
-
-McFadden               Expires January 8, 2020                [Page 14]
+McFadden                Expires August 4, 2020                 [Page 16]
 
-Internet-Draft       Endpoint Taxonomy for CLESS              July 2019
+Internet-Draft       Endpoint Taxonomy for CLESS           February 2020
 
 
 Authors' Addresses
@@ -764,8 +874,6 @@ Authors' Addresses
 
    Email: mark@internetpolicyadvisors.com
 
-   Phone: <optional>
-   Email: <Your email address>
 
 
 
@@ -805,5 +913,7 @@ Authors' Addresses
 
 
 
-McFadden               Expires January 8, 2020                [Page 15]
+
+
+McFadden                Expires August 4, 2020                 [Page 17]
 
